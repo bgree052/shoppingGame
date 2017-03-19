@@ -6,7 +6,7 @@ public class barcode : MonoBehaviour {
 	public GameObject scanner;
 	// Use this for initialization
 	void Start () {
-		
+		scanner = GameObject.Find ("Scaner");
 	}
 	
 	// Update is called once per frame
@@ -22,6 +22,7 @@ public class barcode : MonoBehaviour {
             if(hit.collider.name == "Scaner")
             	//Debug.Log("hit");
             scanner.SendMessage("Scanned");
+			Debug.Log ("BEEP");
         }
 	}
 }

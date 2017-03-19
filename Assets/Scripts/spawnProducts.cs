@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class spawnProducts : MonoBehaviour {
 
-	public GameObject prod1;
-	//public GameObject prod2;
-
-	new Vector3 loc;
+	Vector3 loc;
 
 	Product[] products;
 
@@ -15,19 +12,21 @@ public class spawnProducts : MonoBehaviour {
 	void Start () {
 		//products = new ArrayList ();
 
-		GameObject productsObj = GameObject.Find ("productManager");
+		GameObject productsObj = GameObject.Find ("ProductManager");
+		GameObject instPoint = GameObject.Find ("prodInstPoint");
 		products = productsObj.GetComponent<productManagement>().products;
-		Debug.Log(products);
+		//Debug.Log(products[0].obj);
 		//products = productManagement();
 			
-		loc = gameObject.transform.position;
+		loc = (instPoint.transform.position);
 
+		Debug.Log ("Location: " + loc);
 
-		for (int i = 0; i < 2; i++) {
-			//GameObject newProduct1 = Instantiate (prod1, transform.position, Quaternion.identity) as GameObject;
-			//GameObject newProduct2 = Instantiate (prod2, transform.position, Quaternion.identity) as GameObject;
-			//products.Add (newProduct1);
-			//products.Add (newProduct2);
+		for (int i = 0; i < 3; i++) {
+			loc.z += Random.Range(-2f, 2f);
+			//GameObject newProduct1 = Instantiate(products[Mathf.Round(Random(0,2))].obj, loc, Quaternion.identity) as GameObject;
+			GameObject newProduct1 = Instantiate(products[0].obj, loc, Quaternion.identity) as GameObject;
+//			GameObject newProduct2 = Instantiate (prod2, transform.position, Quaternion.identity) as GameObject;
 		}
 
 

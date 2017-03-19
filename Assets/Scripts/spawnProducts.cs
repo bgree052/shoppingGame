@@ -20,12 +20,14 @@ public class spawnProducts : MonoBehaviour {
 			
 		loc = (instPoint.transform.position);
 
-		Debug.Log ("Location: " + loc);
+		//Debug.Log ("Location: " + loc);
+
+		//Debug.Log (Mathf.Round (Random.Range (0f, 5f)));
 
 		for (int i = 0; i < 3; i++) {
 			loc.z += Random.Range(-2f, 2f);
-			//GameObject newProduct1 = Instantiate(products[Mathf.Round(Random(0,2))].obj, loc, Quaternion.identity) as GameObject;
-			GameObject newProduct1 = Instantiate(products[0].obj, loc, Quaternion.identity) as GameObject;
+			GameObject newProduct1 = Instantiate(products[(int) Mathf.Round(Random.Range(0f,3f))].obj, loc, Quaternion.identity) as GameObject;
+			//GameObject newProduct1 = Instantiate(products[0].obj, loc, Quaternion.identity) as GameObject;
 //			GameObject newProduct2 = Instantiate (prod2, transform.position, Quaternion.identity) as GameObject;
 		}
 
